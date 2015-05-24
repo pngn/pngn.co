@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: PNGN
+        psr4_prefix: PNGN
+        src_path: app
