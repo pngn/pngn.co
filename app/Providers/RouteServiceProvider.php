@@ -23,8 +23,9 @@ class RouteServiceProvider extends ServiceProvider {
 	public function boot(Router $router)
 	{
 		parent::boot($router);
-
-		//
+		$router->bind('hash', function($hash) {
+			return \PNGN\Link::where('hash', $hash)->firstOrFail();
+		});
 	}
 
 	/**

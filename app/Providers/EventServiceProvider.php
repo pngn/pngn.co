@@ -11,8 +11,14 @@ class EventServiceProvider extends ServiceProvider {
 	 * @var array
 	 */
 	protected $listen = [
-		'event.name' => [
-			'EventListener',
+		'PNGN\Events\UserRegistered' => [
+			'PNGN\Handlers\Events\EmailWelcomeMessage',
+		],
+		'PNGN\Events\LinkShortenRequest' => [
+			//
+		],
+		'PNGN\Events\LinkWasShortened' => [
+			'PNGN\Handlers\Events\DiscoverFullUrl',
 		],
 	];
 

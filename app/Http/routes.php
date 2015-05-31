@@ -10,7 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'HomeController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'LinksController@index']);
+Route::get('shorten', ['as' => 'shorten', 'uses' => 'LinksController@store']);
+Route::post('shorten', ['as' => 'shorten', 'uses' => 'LinksController@store']);
+
+Route::get('/{hash}', ['as' => 'hash', 'uses' => 'LinksController@show']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
